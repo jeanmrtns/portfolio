@@ -4,6 +4,8 @@ import { AiFillPhone } from 'react-icons/ai'
 import { RiMapPin2Fill } from 'react-icons/ri'
 import { FaEnvelope } from 'react-icons/fa'
 import { PageInfo } from '../../typings'
+import emailjs from '@emailjs/browser'
+import { useState } from 'react'
 
 type Inputs = {
   name: string
@@ -17,9 +19,47 @@ interface ContactProps {
 }
 
 const Contact = ({ pageInfo }: ContactProps) => {
-  const { register, handleSubmit } = useForm<Inputs>()
+  const [isFormSent, setIsFormSent] = useState(false)
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting },
+  } = useForm<Inputs>()
 
-  const onSubmit: SubmitHandler<Inputs> = (formData) => console.log(formData)
+  const onSubmit: SubmitHandler<Inputs> = (formData) =>
+    emailjs
+      .send(
+        String(process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID),
+        String(process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID),
+        {
+          ...formData,
+        },
+        String(process.env.NEXT_PUBLIC_EMAILJS_API_PUBLIC_KEY),
+      )
+      .then(
+        (response) => {
+          console.log('SUCCESS!', response.status, response.text)
+          setIsFormSent(true)
+        },
+        (err) => {
+          console.log('FAILED...', err)
+        },
+      )
+
+  if (isFormSent) {
+    return (
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+        className="h-screen relative flex flex-col text-center md:text-left md:flex-row md:max-w-7xl px-10 mx-auto justify-evenly items-center"
+      >
+        <strong>
+          Seu formulário foi enviado! Em breve entrarei em contato!
+        </strong>
+      </motion.div>
+    )
+  }
 
   return (
     <motion.div
@@ -94,10 +134,11 @@ const Contact = ({ pageInfo }: ContactProps) => {
             placeholder="Sua mensagem"
           />
           <button
-            className="bg-[#e45960] py-5 px-10 rounded-md text-white font-bold text-lg hover:bg-[#e45960]/80 transition-all"
+            disabled={isSubmitting}
+            className="bg-[#e45960] py-5 px-10 rounded-md text-white font-bold text-lg hover:bg-[#e45960]/80 transition-all disabled:hover:bg-[#e45960] disabled:cursor-not-allowed disabled:opacity-20"
             type="submit"
           >
-            Enviar
+            {isSubmitting ? 'Aguarde' : 'Enviar'}
           </button>
         </form>
       </div>
