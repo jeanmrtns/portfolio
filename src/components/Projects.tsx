@@ -10,7 +10,7 @@ const Projects = () => {
       }}
       transition={{ duration: 1.2 }}
       whileInView={{ opacity: 1, y: 0 }}
-      className="h-screen min-h-screen snap-center relative flex flex-col text-center md:text-left md:flex-row max-w-full px-10 mx-auto justify-evenly items-center"
+      className="h-screen min-h-screen snap-center relative flex overflow-y-hidden flex-col text-center md:text-left md:flex-row max-w-full px-10 mx-auto justify-evenly items-center"
     >
       <h2 className="absolute top-24 uppercase tracking-[1.25rem] text-zinc-500 text-2xl">
         Projetos
