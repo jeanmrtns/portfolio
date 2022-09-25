@@ -1,6 +1,12 @@
 import { motion } from 'framer-motion'
+import { PageInfo } from '../../typings'
+import { urlFor } from '../lib/sanity'
 
-const About = () => {
+interface AboutProps {
+  pageInfo: PageInfo
+}
+
+const About = ({ pageInfo }: AboutProps) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -23,8 +29,8 @@ const About = () => {
         transition={{
           duration: 1.2,
         }}
-        src="https://github.com/jeanmrtns.png"
-        alt="Jean Martins Photo"
+        src={urlFor(pageInfo?.profilePic).url()}
+        alt={`${pageInfo?.name} photo`}
         className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-96 xl:w-[500px] xl:h-[600px]"
       />
 
@@ -34,15 +40,7 @@ const About = () => {
           <span className="underline decoration-[#e45960]">pouco</span> sobre
           minha história
         </h3>
-        <p className="text-base">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae
-          aspernatur odit debitis libero ducimus voluptates sed doloribus
-          consectetur a corrupti autem quas quo, soluta quos delectus aut.
-          Ipsam, aperiam dolorem. Lorem, ipsum dolor sit amet consectetur
-          adipisicing elit. Repellat, nemo! Harum, doloremque similique in quae
-          ut ipsam, suscipit mollitia provident delectus vel ipsa asperiores
-          voluptates! Sit placeat consectetur voluptatem non.
-        </p>
+        <p className="text-base">{pageInfo?.backgroundInformation}</p>
       </div>
     </motion.div>
   )
