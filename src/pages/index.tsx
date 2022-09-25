@@ -1,5 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Link from 'next/link'
+import { FaArrowCircleUp } from 'react-icons/fa'
 import About from '../components/About'
 import Contact from '../components/Contact'
 import Header from '../components/Header'
@@ -40,6 +42,15 @@ const Home: NextPage = () => {
       <section id="contact" className="snap-start">
         <Contact />
       </section>
+
+      <footer className="sticky bottom-5 w-full flex items-center justify-center">
+        <Link href="#hero">
+          <FaArrowCircleUp
+            color="#e45960"
+            className="w-5 h-5 cursor-pointer opacity-10 hover:opacity-100 transition-opacity"
+          />
+        </Link>
+      </footer>
     </div>
   )
 }
