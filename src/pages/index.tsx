@@ -1,7 +1,7 @@
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
-import { FaArrowCircleUp } from 'react-icons/fa'
+import arrowUp from '../assets/arrowUp.svg'
 import { Experience, PageInfo, Project, Skill, Social } from '../../typings'
 import About from '../components/About'
 import Contact from '../components/Contact'
@@ -65,8 +65,9 @@ const Home: NextPage<HomeProps> = ({
 
       <footer className="sticky bottom-5 w-full flex items-center justify-center">
         <Link href="#hero">
-          <FaArrowCircleUp
-            color="#e45960"
+          <img
+            src={arrowUp.src}
+            alt=""
             className="w-5 h-5 cursor-pointer opacity-10 hover:opacity-100 transition-opacity"
           />
         </Link>

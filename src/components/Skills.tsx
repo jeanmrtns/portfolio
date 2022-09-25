@@ -24,7 +24,7 @@ const Skills = ({ skills }: SkillsProps) => {
         Passe o mouse por cima da habilidade para a proficiência atual
       </h3>
 
-      <div className="grid grid-cols-4 gap-5">
+      <div className="grid grid-cols-3 md:grid-cols-4 gap-5">
         {skills.slice(0, skills.length / 2).map((skill) => (
           <SkillBadge skill={skill} key={skill._id} />
         ))}

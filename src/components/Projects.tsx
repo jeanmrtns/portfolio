@@ -39,18 +39,19 @@ const Projects = ({ projects }: ProjectsProps) => {
               transition={{ duration: 1.2 }}
               whileInView={{ opacity: 1, y: 0 }}
               src={urlFor(project.image).url()}
+              className="h-fit max-h-72 md:h-96 md:w-fit"
               alt=""
             />
 
             <div className="space-y-10 md:px-10 px-0 max-w-6xl">
-              <h3 className="text-4xl font-semibold text-center">
+              <h3 className="text-xl md:text-4xl font-semibold text-center">
                 <span className="underline decoration-[#e45960]">
                   Case Study {index + 1} of {projects.length}:
                 </span>{' '}
                 {project.title}
               </h3>
 
-              <p className="text-lg text-center md:text-left">
+              <p className="text-sm md:text-lg text-center md:text-left">
                 {project.summary}
               </p>
             </div>

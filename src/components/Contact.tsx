@@ -26,14 +26,14 @@ const Contact = ({ pageInfo }: ContactProps) => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="h-screen relative flex flex-col text-center md:text-left md:flex-row max-w-7xl px-10 mx-auto justify-evenly items-center"
+      className="h-screen relative flex flex-col text-center md:text-left md:flex-row md:max-w-7xl px-10 mx-auto justify-evenly items-center"
     >
-      <h2 className="absolute top-24 uppercase tracking-[1.25rem] text-zinc-500 text-2xl">
+      <h2 className="absolute top-24 uppercase tracking-[1.25rem] text-zinc-500 md:text-2xl">
         Entre em contato
       </h2>
 
       <div className="flex flex-col space-y-10">
-        <h3 className="text-4xl font-semibold text-center">
+        <h3 className="text-xl md:text-4xl font-semibold text-center w-3/4 mx-auto md:w-full">
           Eu tenho exatamente o que você precisa.{' '}
           <span className="decoration-[#e45960]/50 underline">
             Vamos Conversar.
@@ -43,24 +43,27 @@ const Contact = ({ pageInfo }: ContactProps) => {
         <div className="space-y-6">
           <div className="flex items-center space-x-5 justify-center">
             <AiFillPhone className="text-[#e45960] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">{pageInfo?.phoneNumber}</p>
+            <p className="text-xl md:text-2xl">{pageInfo?.phoneNumber}</p>
           </div>
 
           <div className="flex items-center space-x-5 justify-center">
             <RiMapPin2Fill className="text-[#e45960] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">{pageInfo?.address}</p>
+            <p className="text-xl md:text-2xl">{pageInfo?.address}</p>
           </div>
 
           <div className="flex items-center space-x-5 justify-center">
             <FaEnvelope className="text-[#e45960] h-7 w-7 animate-pulse" />
-            <a href={`mailto:${pageInfo?.email}`} className="text-2xl">
+            <a
+              href={`mailto:${pageInfo?.email}`}
+              className="text-xl md:text-2xl"
+            >
               {pageInfo?.email}
             </a>
           </div>
         </div>
 
         <form
-          className="flex flex-col space-y-2 w-fit mx-auto"
+          className="flex flex-col space-y-2 max-w-full w-fit mx-auto"
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="flex space-x-2">

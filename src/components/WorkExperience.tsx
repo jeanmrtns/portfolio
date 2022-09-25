@@ -18,7 +18,7 @@ const WorkExperience = ({ experiences }: WorkExperienceProps) => {
         Experience
       </h2>
 
-      <div className="w-full flex space-x-5 overflow-x-scroll p-10 snap-x snap-mandatory scrollbar-thin scrollbar-track-zinc-400/20 scrollbar-thumb-[#e45960]">
+      <div className="w-full mt-24 flex space-x-5 overflow-x-scroll p-10 snap-x snap-mandatory scrollbar-thin scrollbar-track-zinc-400/20 scrollbar-thumb-[#e45960]">
         {experiences.map((experience) => (
           <ExperienceCard key={experience._id} experience={experience} />
         ))}

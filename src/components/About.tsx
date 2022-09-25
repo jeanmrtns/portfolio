@@ -31,11 +31,11 @@ const About = ({ pageInfo }: AboutProps) => {
         }}
         src={urlFor(pageInfo?.profilePic).url()}
         alt={`${pageInfo?.name} photo`}
-        className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-96 xl:w-[500px] xl:h-[600px]"
+        className="hidden md:inline-flex -mb-20 md:mb-0 flex-shrink-0 w-24 h-24 rounded-full object-cover md:rounded-lg md:w-64 md:h-96 xl:w-[500px] xl:h-[600px]"
       />
 
       <div className="space-y-10 px-0 md:px-10">
-        <h3 className="text-4xl font-semibold">
+        <h3 className="text-xl mt-24 md:mt-8 md:text-4xl font-semibold">
           Aqui está um{' '}
           <span className="underline decoration-[#e45960]">pouco</span> sobre
           minha história

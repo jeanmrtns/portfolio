@@ -53,11 +53,10 @@ const Header = ({ socials }: HeaderProps) => {
         }}
       >
         <SocialIcon fgColor="gray" bgColor="transparent" network="email" />
-        <Link
-          href="#contact"
-          className="uppercase hidden md:block text-sm text-gray-400"
-        >
-          Entre em contato
+        <Link href="#contact">
+          <a className="uppercase hidden lg:inline-flex text-sm text-gray-400">
+            Entre em contato
+          </a>
         </Link>
       </motion.div>
     </motion.header>

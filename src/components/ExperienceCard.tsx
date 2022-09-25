@@ -8,7 +8,7 @@ interface ExperienceCardProps {
 
 const ExperienceCard = ({ experience }: ExperienceCardProps) => {
   return (
-    <article className="flex flex-col items-center space-y-7 flex-shrink-0 rounded-lg w-[31rem] md:w-[38rem] xl:w-[42rem] snap-center bg-zinc-800 p-10 opacity-40 cursor-pointer transition-opacity hover:opacity-100">
+    <article className="flex flex-col items-center space-y-7 flex-shrink-0 rounded-lg w-[350px] md:w-[500px] h-[500px] md:h-auto xl:w-[600px] snap-center bg-zinc-800 p-10 opacity-40 cursor-pointer transition-opacity hover:opacity-100 overflow-hidden overflow-y-auto">
       <motion.img
         initial={{
           y: -100,
@@ -24,7 +24,7 @@ const ExperienceCard = ({ experience }: ExperienceCardProps) => {
         <p className="font-bold text-2xl mt-1">{experience?.company}</p>
 
         <div className="flex space-x-2 my-2">
-          {experience.technologies.map((tech) => (
+          {experience?.technologies?.map((tech) => (
             <img
               key={tech._id}
               src={urlFor(tech.image).url()}
@@ -35,10 +35,10 @@ const ExperienceCard = ({ experience }: ExperienceCardProps) => {
         </div>
 
         <time className="uppercase py-5 block text-zinc-300">
-          {new Date(experience.dateStarted).toDateString()} -{' '}
+          {new Date(experience?.dateStarted).toDateString()} -{' '}
           {experience.isCurrentlyWorkingHere
             ? 'MOMENTO'
-            : new Date(experience.dateEnded).toDateString()}
+            : new Date(experience?.dateEnded).toDateString()}
         </time>
 
         <ul className="list-disc space-y-2 ml-5 text-lg">

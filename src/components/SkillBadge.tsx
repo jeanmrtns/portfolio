@@ -21,7 +21,7 @@ const SkillBadge = ({ directionLeft, skill }: SkillBadgeProps) => {
           x: 0,
         }}
         src={urlFor(skill?.image).url()}
-        className="rounded-full border border-zinc-500 w-24 h-24 xl:w-32 xl:h-32 filter group-hover:grayscale transition duration-300 ease-in-out"
+        className="rounded-full border border-zinc-500 w-12 h-12 md:h-24 md:w-24 xl:w-32 xl:h-32 filter group-hover:grayscale transition duration-300 ease-in-out"
       />
 
       <div className="absolute opacity-0 z-0 group-hover:opacity-80 duration-300 transition ease-in-out group-hover:bg-white h-24 w-24 xl:w-32 xl:h-32 rounded-full">
