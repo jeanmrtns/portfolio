@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Cursor, useTypewriter } from 'react-simple-typewriter'
 import { PageInfo } from '../../typings'
-import { urlFor } from '../lib/sanity'
+import { urlFor } from '../../sanity'
 import BackgroundCircles from './BackgroundCircles'
 
 interface HeroProps {

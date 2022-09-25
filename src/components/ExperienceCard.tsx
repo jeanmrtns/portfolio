@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Experience } from '../../typings'
-import { urlFor } from '../lib/sanity'
+import { urlFor } from '../../sanity'
 
 interface ExperienceCardProps {
   experience: Experience

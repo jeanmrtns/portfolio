@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Skill } from '../../typings'
-import { urlFor } from '../lib/sanity'
+import { urlFor } from '../../sanity'
 
 interface SkillBadgeProps {
   directionLeft?: boolean

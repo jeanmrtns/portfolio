@@ -10,11 +10,8 @@ import Hero from '../components/Hero'
 import Projects from '../components/Projects'
 import Skills from '../components/Skills'
 import WorkExperience from '../components/WorkExperience'
-import { fetchExperiences } from '../utils/fetchExperiences'
-import { fetchPageInfo } from '../utils/fetchPageInfo'
-import { fetchProjects } from '../utils/fetchProjects'
-import { fetchSkills } from '../utils/fetchSkills'
-import { fetchSocials } from '../utils/fetchSocials'
+import { api } from '../lib/api'
+import Image from 'next/image'
 
 interface HomeProps {
   pageInfo: PageInfo
@@ -65,7 +62,9 @@ const Home: NextPage<HomeProps> = ({
 
       <footer className="sticky bottom-5 w-full flex items-center justify-center">
         <Link href="#hero">
-          <img
+          <Image
+            width={5}
+            height={5}
             src={arrowUp.src}
             alt=""
             className="w-5 h-5 cursor-pointer opacity-10 hover:opacity-100 transition-opacity"
@@ -79,11 +78,21 @@ const Home: NextPage<HomeProps> = ({
 export default Home
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const pageInfo: PageInfo = await fetchPageInfo()
-  const experiences: Experience[] = await fetchExperiences()
-  const projects: Project[] = await fetchProjects()
-  const skills: Skill[] = await fetchSkills()
-  const socials: Social[] = await fetchSocials()
+  const {
+    data: { pageInfo },
+  } = await api.get('/getPageInfo')
+  const {
+    data: { experiences },
+  } = await api.get('/getExperiences')
+  const {
+    data: { projects },
+  } = await api.get('/getProjects')
+  const {
+    data: { skills },
+  } = await api.get('/getSkills')
+  const {
+    data: { socials },
+  } = await api.get('/getSocials')
 
   return {
     props: {
