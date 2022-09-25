@@ -1,8 +1,12 @@
 import { motion } from 'framer-motion'
+import { Project } from '../../typings'
+import { urlFor } from '../lib/sanity'
 
-const Projects = () => {
-  const projects = [1, 2, 3, 4]
+interface ProjectsProps {
+  projects: Project[]
+}
 
+const Projects = ({ projects }: ProjectsProps) => {
   return (
     <motion.div
       initial={{
@@ -17,14 +21,14 @@ const Projects = () => {
       </h2>
 
       <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-track-zinc-400/20 scrollbar-thin scrollbar-thumb-[#e45960]">
-        {projects.map((project, index) => (
+        {projects?.map((project, index) => (
           <motion.div
             initial={{
               opacity: 0,
             }}
             transition={{ duration: 1.2 }}
             whileInView={{ opacity: 1, y: 0 }}
-            key={index}
+            key={project._id}
             className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen"
           >
             <motion.img
@@ -34,7 +38,7 @@ const Projects = () => {
               }}
               transition={{ duration: 1.2 }}
               whileInView={{ opacity: 1, y: 0 }}
-              src=""
+              src={urlFor(project.image).url()}
               alt=""
             />
 
@@ -43,14 +47,11 @@ const Projects = () => {
                 <span className="underline decoration-[#e45960]">
                   Case Study {index + 1} of {projects.length}:
                 </span>{' '}
-                Google Clone
+                {project.title}
               </h3>
 
               <p className="text-lg text-center md:text-left">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Molestiae, et nihil! Provident, odit eaque! Natus labore et
-                porro optio quia aliquid cumque accusamus, veritatis obcaecati.
-                Earum doloribus ratione quia soluta.
+                {project.summary}
               </p>
             </div>
           </motion.div>
