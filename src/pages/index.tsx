@@ -1,7 +1,8 @@
-import type { NextPage } from 'next'
+import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import { FaArrowCircleUp } from 'react-icons/fa'
+import { Experience, PageInfo, Project, Skill, Social } from '../../typings'
 import About from '../components/About'
 import Contact from '../components/Contact'
 import Header from '../components/Header'
@@ -9,15 +10,34 @@ import Hero from '../components/Hero'
 import Projects from '../components/Projects'
 import Skills from '../components/Skills'
 import WorkExperience from '../components/WorkExperience'
+import { fetchExperiences } from '../utils/fetchExperiences'
+import { fetchPageInfo } from '../utils/fetchPageInfo'
+import { fetchProjects } from '../utils/fetchProjects'
+import { fetchSkills } from '../utils/fetchSkills'
+import { fetchSocials } from '../utils/fetchSocials'
 
-const Home: NextPage = () => {
+interface HomeProps {
+  pageInfo: PageInfo
+  experiences: Experience[]
+  skills: Skill[]
+  projects: Project[]
+  socials: Social[]
+}
+
+const Home: NextPage<HomeProps> = ({
+  pageInfo,
+  experiences,
+  skills,
+  projects,
+  socials,
+}: HomeProps) => {
   return (
     <div className="bg-zinc-900 text-zinc-100 h-screen snap-y snap-mandatory overflow-x-hidden overflow-y-scroll z-0 scrollbar-thin scrollbar-track-zinc-400/20 scrollbar-thumb-[#e45960]">
       <Head>
         <title>Jean&apos;s Portfolio</title>
       </Head>
 
-      <Header />
+      <Header socials={socials} />
 
       <section id="hero" className="snap-start">
         <Hero />
@@ -56,3 +76,21 @@ const Home: NextPage = () => {
 }
 
 export default Home
+
+export const getStaticProps: GetStaticProps = async () => {
+  const pageInfo: PageInfo = await fetchPageInfo()
+  const experiences: Experience[] = await fetchExperiences()
+  const projects: Project[] = await fetchProjects()
+  const skills: Skill[] = await fetchSkills()
+  const socials: Social[] = await fetchSocials()
+
+  return {
+    props: {
+      experiences,
+      pageInfo,
+      projects,
+      skills,
+      socials,
+    },
+  }
+}
