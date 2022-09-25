@@ -1,7 +1,12 @@
 import { motion } from 'framer-motion'
-import Skill from './Skill'
+import { Skill } from '../../typings'
+import SkillBadge from './SkillBadge'
 
-const Skills = () => {
+interface SkillsProps {
+  skills: Skill[]
+}
+
+const Skills = ({ skills }: SkillsProps) => {
   return (
     <motion.div
       initial={{
@@ -20,22 +25,13 @@ const Skills = () => {
       </h3>
 
       <div className="grid grid-cols-4 gap-5">
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
+        {skills.slice(0, skills.length / 2).map((skill) => (
+          <SkillBadge skill={skill} key={skill._id} />
+        ))}
+
+        {skills.slice(skills.length / 2, skills.length).map((skill) => (
+          <SkillBadge skill={skill} key={skill._id} directionLeft />
+        ))}
       </div>
     </motion.div>
   )
