@@ -13,7 +13,7 @@ const WorkExperience = () => {
         Experience
       </h2>
 
-      <div className="w-full flex space-x-5 overflow-x-scroll p-10 snap-x snap-mandatory">
+      <div className="w-full flex space-x-5 overflow-x-scroll p-10 snap-x snap-mandatory scrollbar-thin scrollbar-track-zinc-400/20 scrollbar-thumb-[#e45960]">
         <ExperienceCard />
       </div>
     </motion.div>

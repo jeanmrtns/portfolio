@@ -82,7 +82,7 @@ const Contact = () => {
 
           <textarea
             {...register('message')}
-            className="contactInput resize-none resize-y"
+            className="contactInput resize-y"
             placeholder="Sua mensagem"
           />
           <button

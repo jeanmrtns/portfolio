@@ -10,7 +10,7 @@ import WorkExperience from '../components/WorkExperience'
 
 const Home: NextPage = () => {
   return (
-    <div className="bg-zinc-900 text-zinc-100 h-screen snap-y snap-mandatory overflow-y-scroll z-0">
+    <div className="bg-zinc-900 text-zinc-100 h-screen snap-y snap-mandatory overflow-x-hidden overflow-y-scroll z-0 scrollbar-thin scrollbar-track-zinc-400/20 scrollbar-thumb-[#e45960]">
       <Head>
         <title>Jean&apos;s Portfolio</title>
       </Head>

@@ -16,7 +16,7 @@ const Projects = () => {
         Projetos
       </h2>
 
-      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20">
+      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-track-zinc-400/20 scrollbar-thin scrollbar-thumb-[#e45960]">
         {projects.map((project, index) => (
           <motion.div
             initial={{
