@@ -1,9 +1,21 @@
+import { useForm, SubmitHandler } from 'react-hook-form'
 import { motion } from 'framer-motion'
 import { AiFillPhone } from 'react-icons/ai'
 import { RiMapPin2Fill } from 'react-icons/ri'
 import { FaEnvelope } from 'react-icons/fa'
 
+type Inputs = {
+  name: string
+  email: string
+  subject: string
+  message: string
+}
+
 const Contact = () => {
+  const { register, handleSubmit } = useForm<Inputs>()
+
+  const onSubmit: SubmitHandler<Inputs> = (formData) => console.log(formData)
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -42,15 +54,34 @@ const Contact = () => {
           </div>
         </div>
 
-        <form className="flex flex-col space-y-2 w-fit mx-auto">
+        <form
+          className="flex flex-col space-y-2 w-fit mx-auto"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div className="flex space-x-2">
-            <input type="text" placeholder="Nome" className="contactInput" />
-            <input type="email" placeholder="Email" className="contactInput" />
+            <input
+              {...register('name')}
+              type="text"
+              placeholder="Nome"
+              className="contactInput"
+            />
+            <input
+              {...register('email')}
+              type="email"
+              placeholder="Email"
+              className="contactInput"
+            />
           </div>
 
-          <input type="text" className="contactInput" placeholder="Assunto" />
+          <input
+            {...register('subject')}
+            type="text"
+            className="contactInput"
+            placeholder="Assunto"
+          />
 
           <textarea
+            {...register('message')}
             className="contactInput resize-none resize-y"
             placeholder="Sua mensagem"
           />
