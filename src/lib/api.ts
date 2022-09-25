@@ -1,8 +1,7 @@
 import axios from 'axios'
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || ''
+
 export const api = axios.create({
-  baseURL:
-    process.env.NODE_ENV === 'production'
-      ? '/api'
-      : 'http://localhost:3000/api',
+  baseURL: `${BASE_URL}/api`,
 })
