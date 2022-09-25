@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { AiFillPhone } from 'react-icons/ai'
 import { RiMapPin2Fill } from 'react-icons/ri'
 import { FaEnvelope } from 'react-icons/fa'
+import { PageInfo } from '../../typings'
 
 type Inputs = {
   name: string
@@ -11,7 +12,11 @@ type Inputs = {
   message: string
 }
 
-const Contact = () => {
+interface ContactProps {
+  pageInfo: PageInfo
+}
+
+const Contact = ({ pageInfo }: ContactProps) => {
   const { register, handleSubmit } = useForm<Inputs>()
 
   const onSubmit: SubmitHandler<Inputs> = (formData) => console.log(formData)
@@ -38,18 +43,18 @@ const Contact = () => {
         <div className="space-y-6">
           <div className="flex items-center space-x-5 justify-center">
             <AiFillPhone className="text-[#e45960] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">+55 35997484820</p>
+            <p className="text-2xl">{pageInfo?.phoneNumber}</p>
           </div>
 
           <div className="flex items-center space-x-5 justify-center">
             <RiMapPin2Fill className="text-[#e45960] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">Poços de Caldas - MG | Brasil</p>
+            <p className="text-2xl">{pageInfo?.address}</p>
           </div>
 
           <div className="flex items-center space-x-5 justify-center">
             <FaEnvelope className="text-[#e45960] h-7 w-7 animate-pulse" />
-            <a href="mailto:jeanmrtns4@gmail.com" className="text-2xl">
-              jeanmrtns4@gmail.com
+            <a href={`mailto:${pageInfo?.email}`} className="text-2xl">
+              {pageInfo?.email}
             </a>
           </div>
         </div>

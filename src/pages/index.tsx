@@ -60,7 +60,7 @@ const Home: NextPage<HomeProps> = ({
       </section>
 
       <section id="contact" className="snap-start">
-        <Contact />
+        <Contact pageInfo={pageInfo} />
       </section>
 
       <footer className="sticky bottom-5 w-full flex items-center justify-center">
