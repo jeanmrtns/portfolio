@@ -40,7 +40,7 @@ const Home: NextPage<HomeProps> = ({
       <Header socials={socials} />
 
       <section id="hero" className="snap-start">
-        <Hero />
+        <Hero pageInfo={pageInfo} />
       </section>
 
       <section id="about" className="snap-start">
