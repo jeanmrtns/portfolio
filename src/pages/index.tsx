@@ -63,8 +63,8 @@ const Home: NextPage<HomeProps> = ({
       <footer className="sticky bottom-5 w-full flex items-center justify-center">
         <Link href="#hero">
           <Image
-            width={5}
-            height={5}
+            width={25}
+            height={25}
             src={arrowUp.src}
             alt=""
             className="w-5 h-5 cursor-pointer opacity-10 hover:opacity-100 transition-opacity"

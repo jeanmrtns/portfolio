@@ -12,9 +12,9 @@ interface HeroProps {
 const Hero = ({ pageInfo }: HeroProps) => {
   const [text] = useTypewriter({
     words: [
-      `Hi, my name is ${pageInfo?.name}`,
-      'Guy-who-loves-coding',
-      '<Focused />',
+      `Hey! Meu nome é ${pageInfo?.name}`,
+      'Bem vindo ao meu portfólio!',
+      '<Focado />',
     ],
     loop: true,
     delaySpeed: 2000,
@@ -41,16 +41,16 @@ const Hero = ({ pageInfo }: HeroProps) => {
 
         <div className="pt-5">
           <Link href="#about">
-            <button className="heroButton">About</button>
+            <button className="heroButton">Sobre</button>
           </Link>
           <Link href="#experience">
-            <button className="heroButton">Experience</button>
+            <button className="heroButton">Experiências</button>
           </Link>
           <Link href="#skills">
             <button className="heroButton">Skills</button>
           </Link>
           <Link href="#projects">
-            <button className="heroButton">Projects</button>
+            <button className="heroButton">Projetos</button>
           </Link>
         </div>
       </div>

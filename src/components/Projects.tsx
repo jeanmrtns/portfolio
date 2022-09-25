@@ -46,7 +46,7 @@ const Projects = ({ projects }: ProjectsProps) => {
             <div className="space-y-10 md:px-10 px-0 max-w-6xl">
               <h3 className="text-xl md:text-4xl font-semibold text-center">
                 <span className="underline decoration-[#e45960]">
-                  Case Study {index + 1} of {projects.length}:
+                  Projeto {index + 1} de {projects.length}:
                 </span>{' '}
                 {project.title}
               </h3>

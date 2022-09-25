@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Experience } from '../../typings'
 import { urlFor } from '../../sanity'
+import Image from 'next/image'
 
 interface ExperienceCardProps {
   experience: Experience
@@ -25,7 +26,9 @@ const ExperienceCard = ({ experience }: ExperienceCardProps) => {
 
         <div className="flex space-x-2 my-2">
           {experience?.technologies?.map((tech) => (
-            <img
+            <Image
+              width={40}
+              height={40}
               key={tech._id}
               src={urlFor(tech.image).url()}
               className="rounded-full h-10 w-10"
@@ -35,10 +38,10 @@ const ExperienceCard = ({ experience }: ExperienceCardProps) => {
         </div>
 
         <time className="uppercase py-5 block text-zinc-300">
-          {new Date(experience?.dateStarted).toDateString()} -{' '}
+          {new Date(experience?.dateStarted).toLocaleDateString()} -{' '}
           {experience.isCurrentlyWorkingHere
             ? 'MOMENTO'
-            : new Date(experience?.dateEnded).toDateString()}
+            : new Date(experience?.dateEnded).toLocaleDateString()}
         </time>
 
         <ul className="list-disc space-y-2 ml-5 text-lg">
