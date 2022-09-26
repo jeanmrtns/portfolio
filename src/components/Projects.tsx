@@ -16,7 +16,7 @@ const Projects = ({ projects }: ProjectsProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       className="h-screen min-h-screen snap-center relative flex overflow-y-hidden flex-col text-center md:text-left md:flex-row max-w-full px-10 mx-auto justify-evenly items-center"
     >
-      <h2 className="absolute top-24 uppercase tracking-[1.25rem] text-zinc-500 text-2xl">
+      <h2 className="absolute top-24 uppercase tracking-[1rem] md:tracking-[1.25rem] text-zinc-500 text-xl md:text-2xl">
         Projetos
       </h2>
 

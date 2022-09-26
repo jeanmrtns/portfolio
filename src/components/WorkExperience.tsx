@@ -14,7 +14,7 @@ const WorkExperience = ({ experiences }: WorkExperienceProps) => {
       transition={{ duration: 1.5 }}
       className="h-screen relative flex overflow-hidden flex-col text-left md:flex-row max-w-full px-10 justify-evenly mx-auto items-center"
     >
-      <h2 className="absolute top-24 uppercase tracking-[1.25rem] text-zinc-500 text-2xl">
+      <h2 className="absolute top-24 uppercase tracking-[1rem] md:tracking-[1.25rem] text-zinc-500 text-xl md:text-2xl">
         Experiências
       </h2>
 

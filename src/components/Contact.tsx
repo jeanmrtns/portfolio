@@ -66,36 +66,36 @@ const Contact = ({ pageInfo }: ContactProps) => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="h-screen relative flex flex-col text-center md:text-left md:flex-row md:max-w-7xl px-10 mx-auto justify-evenly items-center"
+      className="h-screen relative pb-16 flex flex-col text-center md:text-left md:flex-row md:max-w-7xl px-10 mx-auto justify-evenly items-center"
     >
-      <h2 className="absolute top-24 uppercase tracking-[1.25rem] text-zinc-500 md:text-2xl">
+      <h2 className="absolute top-24 uppercase tracking-[1rem] md:tracking-[1.25rem] text-zinc-500 text-xl md:text-2xl">
         Entre em contato
       </h2>
 
-      <div className="flex flex-col space-y-10">
-        <h3 className="text-xl md:text-4xl font-semibold text-center w-3/4 mx-auto md:w-full">
+      <div className="flex flex-col space-y-4 md:space-y-10">
+        <h3 className="text-base mt-44 md:mt-0 md:text-4xl font-semibold text-center w-full mx-auto md:w-full">
           Eu tenho exatamente o que você precisa.{' '}
           <span className="decoration-[#e45960]/50 underline">
             Vamos Conversar.
           </span>
         </h3>
 
-        <div className="space-y-6">
-          <div className="flex items-center space-x-5 justify-center">
-            <AiFillPhone className="text-[#e45960] h-7 w-7 animate-pulse" />
-            <p className="text-xl md:text-2xl">{pageInfo?.phoneNumber}</p>
+        <div className="md:space-y-6 space-y-2">
+          <div className="flex items-center space-x-5 md:justify-center">
+            <AiFillPhone className="text-[#e45960] h-5 w-5 md:h-7 md:w-7 animate-pulse" />
+            <p className="text-base md:text-2xl">{pageInfo?.phoneNumber}</p>
           </div>
 
-          <div className="flex items-center space-x-5 justify-center">
-            <RiMapPin2Fill className="text-[#e45960] h-7 w-7 animate-pulse" />
-            <p className="text-xl md:text-2xl">{pageInfo?.address}</p>
+          <div className="flex items-center space-x-5 md:justify-center">
+            <RiMapPin2Fill className="text-[#e45960] h-5 w-5 md:h-7 md:w-7 animate-pulse" />
+            <p className="text-base md:text-2xl">{pageInfo?.address}</p>
           </div>
 
-          <div className="flex items-center space-x-5 justify-center">
-            <FaEnvelope className="text-[#e45960] h-7 w-7 animate-pulse" />
+          <div className="flex items-center space-x-5 md:justify-center">
+            <FaEnvelope className="text-[#e45960] h-5 w-5 md:h-7 md:w-7 animate-pulse" />
             <a
               href={`mailto:${pageInfo?.email}`}
-              className="text-xl md:text-2xl"
+              className="text-base md:text-2xl"
             >
               {pageInfo?.email}
             </a>
@@ -103,10 +103,10 @@ const Contact = ({ pageInfo }: ContactProps) => {
         </div>
 
         <form
-          className="flex flex-col space-y-2 max-w-full w-fit mx-auto"
+          className="flex flex-col space-y-2 max-w-full w-full mx-auto"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <div className="flex space-x-2">
+          <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2">
             <input
               {...register('name')}
               type="text"

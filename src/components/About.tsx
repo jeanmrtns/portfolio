@@ -14,7 +14,7 @@ const About = ({ pageInfo }: AboutProps) => {
       transition={{ duration: 1.5 }}
       className="h-screen relative flex flex-col text-center md:text-left md:flex-row max-w-7xl px-10 mx-auto justify-evenly items-center"
     >
-      <h2 className="absolute top-24 uppercase tracking-[1.25rem] text-zinc-500 text-2xl">
+      <h2 className="absolute top-24 uppercase tracking-[1rem] md:tracking-[1.25rem] text-zinc-500 text-xl md:text-2xl">
         Sobre mim
       </h2>
       <motion.img
