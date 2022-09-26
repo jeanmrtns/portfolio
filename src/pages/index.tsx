@@ -1,4 +1,4 @@
-import type { GetServerSideProps, NextPage } from 'next'
+import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import arrowUp from '../assets/arrowUp.svg'
@@ -77,7 +77,7 @@ const Home: NextPage<HomeProps> = ({
 
 export default Home
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const {
     data: { pageInfo },
   } = await api.get('/getPageInfo')
@@ -102,5 +102,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
       skills,
       socials,
     },
+    revalidate: 60 * 60, // 1h
   }
 }
