@@ -26,7 +26,10 @@ const SkillBadge = ({ directionLeft, skill }: SkillBadgeProps) => {
 
       <div className="absolute opacity-0 z-0 group-hover:opacity-80 duration-300 transition ease-in-out group-hover:bg-white w-12 h-12 md:h-24 md:w-24 xl:w-32 xl:h-32 rounded-full">
         <div className="flex items-center justify-center h-full">
-          <p className="text-sm md:text-3xl font-bold text-black opacity-100">
+          <p
+            title={skill.title}
+            className="text-sm md:text-3xl font-bold text-black opacity-100"
+          >
             {skill.progress}%
           </p>
         </div>
